@@ -145,7 +145,7 @@ Update in:
 
 ### Add Your Logo
 
-1. Add logo file (e.g., `logo.png`) to website folder
+1. Add logo file (e.g., `/logo.png`) to website folder
 2. In each HTML file, replace:
    ```html
 <img src="https://drive.google.com/file/d/1f18K9BOrTJh2cBPSKoeEcna_9DogNTL4/view?usp=sharing" alt="BearingNorthAI" style="height: 40px;">
@@ -153,7 +153,7 @@ Update in:
    ```
    With:
    ```html
-   <img src="logo.png" alt="BearingNorthAI" style="height: 40px;">
+   <img src="/logo.png" alt="BearingNorthAI" style="height: 40px;">
    BearingNorthAI
    ```
 
