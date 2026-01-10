@@ -1,204 +1,262 @@
 # BearingNorthAI Website
 
-A professional website for BearingNorthAI - AI Advisory & Implementation company serving the UAE market.
+Professional AI advisory and implementation website for BearingNorthAI - your trusted partner in artificial intelligence transformation for the UAE market.
 
-## Website Structure
+## 🎯 **Our Mission**
 
-The website consists of 5 main pages:
+At BearingNorthAI, we empower UAE organizations to harness the transformative potential of artificial intelligence, driving innovation and sustainable growth in alignment with the nation's Vision 2031.
 
-1. **Home (index.html)** - Landing page with hero section, services overview, and key features
-2. **Services (services.html)** - Detailed information about all AI services offered
-3. **About (about.html)** - Company mission, values, team, and approach
-4. **Case Studies (case-studies.html)** - Success stories from real client engagements
-5. **Contact (contact.html)** - Contact form and company information
+## 📋 **Website Pages**
 
-## Features
+1. **Home** - Landing page showcasing our services and value proposition
+2. **Services** - Comprehensive AI solutions we offer
+3. **About** - Our mission, values, team, and approach
+4. **Case Studies** - Real success stories from client engagements
+5. **Contact** - Get in touch with our team
 
-- **Responsive Design**: Mobile-friendly layout that works on all devices
-- **Navigation with Icons**: Clean navigation bar with Font Awesome icons
-- **Google Calendar Integration**: "Book AI Consultation" button throughout the site
-- **Modern UI/UX**: Professional design with smooth animations and transitions
-- **UAE Market Focus**: Content tailored for UAE businesses and Vision 2031
-- **Interactive Elements**: Smooth scrolling, animated counters, and scroll-triggered animations
+## ✨ **Key Features**
 
-## Setup Instructions
+- ✅ Fully responsive design for all devices
+- ✅ Modern, professional UI/UX
+- ✅ Integrated Google Calendar booking system
+- ✅ Contact form with data saving capability
+- ✅ UAE market-focused content
+- ✅ Fast loading and optimized performance
 
-### 1. Basic Setup
+## 🚀 **Quick Start**
 
-Simply open `index.html` in a web browser to view the website locally.
+### View Locally
 
-### 2. Google Calendar Integration
+```bash
+# Start local server
+python -m http.server 8000
 
-To enable the "Book AI Consultation" button to work with your Google Calendar:
-
-#### Step 1: Create a Google Calendar Appointment Schedule
-
-1. Go to [Google Calendar](https://calendar.google.com)
-2. Click the gear icon (⚙️) in the top right
-3. Select **Settings**
-4. In the left sidebar, click **Appointment schedules**
-5. Click **Create** to create a new appointment schedule
-6. Configure your appointment details:
-   - Name: "AI Consultation"
-   - Duration: 30 minutes (or your preferred duration)
-   - Availability: Set your available time slots
-   - Location: Video call, phone, or in-person
-7. Click **Save**
-
-#### Step 2: Get Your Booking Link
-
-1. After creating the appointment schedule, click on it
-2. Click **Share** or **Get link**
-3. Copy the booking page URL (it will look like: `https://calendar.google.com/calendar/appointments/schedules/...`)
-
-#### Step 3: Update the Website
-
-1. Open `script.js` in a text editor
-2. Find the line with `GOOGLE_CALENDAR_BOOKING_URL` (around line 59)
-3. Replace the placeholder URL with your actual booking link:
-
-```javascript
-const GOOGLE_CALENDAR_BOOKING_URL = 'https://calendar.google.com/calendar/appointments/schedules/YOUR_ACTUAL_LINK';
+# Open in browser
+http://localhost:8000
 ```
 
-4. Save the file
+## 📦 **Deployment to Vercel**
 
-Now when visitors click any "Book AI Consultation" button, they'll be directed to your Google Calendar booking page!
+### Step 1: Push to GitHub
 
-### 3. Customization
+```bash
+git add .
+git commit -m "Update website"
+git push origin main
+```
 
-#### Update Contact Information
+### Step 2: Deploy on Vercel
 
-Edit the contact details in the footer and contact page:
-- Phone number (currently: +971 54 215 2357)
-- Email (currently: info@bearingnorthai.com)
-- Address (currently: Dubai, UAE)
+1. Visit [vercel.com](https://vercel.com) and sign in with GitHub
+2. Import the `bearingnorthai-website` repository
+3. Click Deploy
+4. Your site will be live at: `https://bearingnorthai-website.vercel.app`
 
-#### Add Your Logo
+### Step 3: Custom Domain Setup (GoDaddy)
 
-Replace the compass icon in the navigation with your logo:
-1. Add your logo image to the website folder
-2. In each HTML file, replace `<i class="fas fa-compass"></i>` in the logo section with:
+#### In Vercel:
+1. Go to Settings → Domains
+2. Add your domain: `bearingnorthai.com`
+3. Add www subdomain: `www.bearingnorthai.com`
+
+#### In GoDaddy:
+1. Login → My Products → Domains → Manage DNS
+2. **Add these DNS records:**
+
+| Type | Name | Value | TTL |
+|------|------|-------|-----|
+| A | @ | 76.76.21.21 | 1 Hour |
+| CNAME | www | cname.vercel-dns.com | 1 Hour |
+
+3. **Delete old A records** pointing to other servers
+4. Wait 5-30 minutes for DNS propagation
+
+## 🔧 **Configuration**
+
+### Google Calendar Booking
+
+Already configured with your booking link. To update:
+
+1. Open `script.js`
+2. Find line 54
+3. Update: `const GOOGLE_CALENDAR_BOOKING_URL = 'YOUR_LINK';`
+
+### Contact Form Data Saving
+
+The contact form saves submissions via `/api/contact`. Choose your preferred storage:
+
+#### Option 1: Email via SendGrid (Recommended)
+
+1. Sign up at [sendgrid.com](https://sendgrid.com)
+2. Get API key from Settings
+3. Install package:
+   ```bash
+   npm init -y
+   npm install @sendgrid/mail
+   ```
+4. Add environment variable in Vercel:
+   - Go to Settings → Environment Variables
+   - Add: `SENDGRID_API_KEY=your_key`
+5. Uncomment SendGrid code in `api/contact.js` (lines 26-55)
+
+#### Option 2: Google Sheets
+
+1. Create Google Cloud Project
+2. Enable Google Sheets API
+3. Create Service Account and download JSON key
+4. Create Google Sheet and share with service account email
+5. Install packages:
+   ```bash
+   npm install google-spreadsheet google-auth-library
+   ```
+6. Add environment variables in Vercel:
+   - `GOOGLE_SERVICE_ACCOUNT_EMAIL`
+   - `GOOGLE_PRIVATE_KEY`
+   - `GOOGLE_SHEET_ID`
+7. Uncomment Google Sheets code in `api/contact.js` (lines 58-82)
+
+#### Option 3: Airtable
+
+1. Sign up at [airtable.com](https://airtable.com)
+2. Create base with "Contacts" table
+3. Get API key
+4. Install: `npm install airtable`
+5. Add environment variables:
+   - `AIRTABLE_API_KEY`
+   - `AIRTABLE_BASE_ID`
+6. Uncomment Airtable code in `api/contact.js` (lines 85-105)
+
+#### Option 4: View in Logs (Current Default)
+
+Form submissions appear in Vercel deployment logs:
+- Vercel Dashboard → Deployments → View Logs
+
+### Update Contact Information
+
+Current details:
+- **Phone**: +971 54 215 2357
+- **Email**: info@bearingnorthai.com
+- **Address**: Business Bay, Dubai, UAE
+
+Update in:
+- All HTML file footers
+- Contact page
+- `api/contact.js` error messages
+
+### Add Your Logo
+
+1. Add logo file (e.g., `logo.png`) to website folder
+2. In each HTML file, replace:
    ```html
-   <img src="your-logo.png" alt="BearingNorthAI Logo" style="height: 40px;">
+   <i class="fas fa-compass"></i>
+   BearingNorthAI
+   ```
+   With:
+   ```html
+   <img src="logo.png" alt="BearingNorthAI" style="height: 40px;">
+   BearingNorthAI
    ```
 
-#### Update Social Media Links
+### Social Media Links
 
-In the footer of each page, update the social media links:
+Update in all HTML file footers:
 ```html
-<a href="https://www.linkedin.com/company/your-company"><i class="fab fa-linkedin"></i></a>
-<a href="https://twitter.com/your-company"><i class="fab fa-twitter"></i></a>
-<a href="https://www.facebook.com/your-company"><i class="fab fa-facebook"></i></a>
+<a href="YOUR_LINKEDIN_URL"><i class="fab fa-linkedin"></i></a>
+<a href="YOUR_TWITTER_URL"><i class="fab fa-twitter"></i></a>
+<a href="YOUR_FACEBOOK_URL"><i class="fab fa-facebook"></i></a>
 ```
 
-### 4. Contact Form Integration
+## 📊 **Google Analytics (Optional)**
 
-The contact form currently displays a success message without sending data. To make it functional:
+1. Create GA4 property at [analytics.google.com](https://analytics.google.com)
+2. Get Measurement ID (G-XXXXXXXXXX)
+3. Add before `</head>` in all HTML files:
 
-#### Option 1: Use a Form Service (Easiest)
+```html
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
 
-Use services like:
-- [Formspree](https://formspree.io) - Free tier available
-- [Netlify Forms](https://www.netlify.com/products/forms/) - If hosting on Netlify
-- [Google Forms](https://www.google.com/forms) - Free
-
-#### Option 2: Connect to Your Backend
-
-Update the form submission in `script.js` (around line 105) to send data to your API endpoint.
-
-## Deployment
-
-### Option 1: GitHub Pages (Free)
-
-1. Create a GitHub repository
-2. Upload all website files
-3. Go to Settings > Pages
-4. Select main branch as source
-5. Your site will be live at `https://yourusername.github.io/repository-name`
-
-### Option 2: Netlify (Free)
-
-1. Create account at [Netlify](https://www.netlify.com)
-2. Drag and drop your website folder
-3. Your site will be live instantly with a custom URL
-
-### Option 3: Traditional Web Hosting
-
-Upload all files to your web hosting provider via FTP.
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Technologies Used
-
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with flexbox and grid
-- **JavaScript**: Vanilla JS for interactivity
-- **Font Awesome 6.4.0**: Icons
-- **Google Fonts**: Typography (system fonts)
-
-## File Structure
+## 📁 **Project Structure**
 
 ```
-Website/
+bearingnorthai-website/
 ├── index.html          # Home page
-├── services.html       # Services page
-├── about.html          # About page
-├── case-studies.html   # Case studies page
-├── contact.html        # Contact page
+├── services.html       # Services
+├── about.html          # About us
+├── case-studies.html   # Success stories
+├── contact.html        # Contact form
 ├── styles.css          # All styles
-├── script.js           # All JavaScript
-└── README.md           # This file
+├── script.js           # JavaScript
+├── vercel.json         # Deployment config
+├── .gitignore          # Git ignore
+├── README.md           # This file
+└── api/
+    └── contact.js      # Form API
 ```
 
-## Content Highlights
+## 🛠️ **Technologies**
 
-### Enriched Content Sources
+- HTML5
+- CSS3 (Flexbox & Grid)
+- Vanilla JavaScript
+- Font Awesome 6.4.0
+- Vercel Serverless Functions
 
-The website content was inspired by leading AI consulting firms:
-- McKinsey QuantumBlack
-- IBM Watson
-- PwC AI Services
-- Deloitte AI
-- BCG Gamma
+## 🆘 **Troubleshooting**
 
-All content has been customized for the UAE market and BearingNorthAI's value proposition.
+### Contact Form Issues
+- Check browser console for errors
+- Verify `/api/contact` endpoint exists
+- Check Vercel deployment logs
+- Ensure environment variables are set
 
-### UAE-Specific Features
+### DNS Not Working
+- Wait 24-48 hours
+- Check [whatsmydns.net](https://www.whatsmydns.net)
+- Verify DNS records in GoDaddy
+- Clear browser cache
 
-- References to UAE Vision 2031
-- Arabic language support mentions
-- GCC market focus
-- UAE regulatory compliance
-- Dubai and Abu Dhabi market expertise
+### Booking Button Issues
+- Verify Google Calendar link is public
+- Update link in `script.js`
+- Clear cache and retest
 
-## Support
+## 📞 **Support**
 
-For questions or issues:
-- Email: info@bearingnorthai.ae
-- Phone: +971 XX XXX XXXX
+- **Email**: info@bearingnorthai.com
+- **Phone**: +971 54 215 2357
+- **Location**: Business Bay, Dubai, UAE
 
-## License
+## ✅ **Launch Checklist**
+
+- [x] Website developed
+- [x] Pushed to GitHub
+- [ ] Deployed to Vercel
+- [ ] Custom domain connected
+- [ ] DNS propagated
+- [ ] Google Calendar configured
+- [ ] Contact form storage setup
+- [ ] Contact info updated
+- [ ] Logo added
+- [ ] Social links updated
+- [ ] Analytics added (optional)
+- [ ] Mobile testing complete
+- [ ] Contact form tested
+- [ ] Booking button tested
+- [ ] Launch! 🚀
+
+## 📄 **License**
 
 © 2026 BearingNorthAI. All rights reserved.
 
 ---
 
-**Next Steps:**
+**Empowering UAE businesses with AI transformation**
 
-1. ✅ Set up Google Calendar booking link
-2. ✅ Update contact information
-3. ✅ Add your company logo
-4. ✅ Update social media links
-5. ✅ Configure contact form backend
-6. ✅ Deploy to web hosting
-7. ✅ Test on mobile devices
-8. ✅ Set up analytics (Google Analytics recommended)
-
-**Good luck with your website! 🚀**
+Visit us at: [bearingnorthai.com](https://bearingnorthai.com)

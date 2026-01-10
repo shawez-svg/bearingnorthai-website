@@ -139,24 +139,28 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitButton.disabled = true;
 
-            // Simulate form submission (replace with actual API call)
-            setTimeout(function() {
-                // Reset button
+            // Submit form to API
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formObject)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Success
                 submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
                 submitButton.style.background = '#10b981';
-
-                // Reset form
                 contactForm.reset();
 
                 // Show success message
                 alert('Thank you for your message! Our team will get back to you within 24 hours.');
-
-                // Reset button after 3 seconds
-                setTimeout(function() {
-                    submitButton.innerHTML = originalButtonText;
-                    submitButton.style.background = '';
-                    submitButton.disabled = false;
-                }, 3000);
 
                 // Optional: Track form submission
                 if (typeof gtag !== 'undefined') {
@@ -165,38 +169,22 @@ document.addEventListener('DOMContentLoaded', function() {
                         'event_label': 'Contact Form'
                     });
                 }
-            }, 1500);
-
-            // TODO: Replace the setTimeout above with actual form submission to your backend
-            // Example using fetch:
-            /*
-            fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formObject)
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                submitButton.style.background = '#10b981';
-                contactForm.reset();
-                alert('Thank you for your message! Our team will get back to you within 24 hours.');
             })
             .catch(error => {
+                // Error
+                console.error('Form submission error:', error);
                 submitButton.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
                 submitButton.style.background = '#ef4444';
-                alert('Sorry, there was an error sending your message. Please try again or email us directly.');
+                alert('Sorry, there was an error sending your message. Please try again or email us directly at info@bearingnorthai.com.');
             })
             .finally(() => {
+                // Reset button after 3 seconds
                 setTimeout(function() {
                     submitButton.innerHTML = originalButtonText;
                     submitButton.style.background = '';
                     submitButton.disabled = false;
                 }, 3000);
             });
-            */
         });
     }
 });
