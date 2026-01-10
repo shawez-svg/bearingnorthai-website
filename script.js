@@ -50,16 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // =================================
 // Google Calendar Booking Integration
 // =================================
-// IMPORTANT: Replace this URL with your actual Google Calendar booking link
-// To create a booking link:
-// 1. Go to Google Calendar (calendar.google.com)
-// 2. Click the gear icon > Settings
-// 3. Go to "Appointment schedules" in the left sidebar
-// 4. Create a new appointment schedule or select existing
-// 5. Copy the booking page link
-// 6. Replace the URL below with your booking link
 
-const GOOGLE_CALENDAR_BOOKING_URL = 'https://calendar.google.com/calendar/appointments/schedules/YOUR_BOOKING_LINK_HERE';
+const GOOGLE_CALENDAR_BOOKING_URL = 'https://calendar.app.google/hmuYQSHou1MxmD2bA';
 
 // Function to open Google Calendar booking
 function bookConsultation() {

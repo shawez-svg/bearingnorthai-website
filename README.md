@@ -70,8 +70,8 @@ Now when visitors click any "Book AI Consultation" button, they'll be directed t
 #### Update Contact Information
 
 Edit the contact details in the footer and contact page:
-- Phone number (currently: +971 XX XXX XXXX)
-- Email (currently: info@bearingnorthai.ae)
+- Phone number (currently: +971 54 215 2357)
+- Email (currently: info@bearingnorthai.com)
 - Address (currently: Dubai, UAE)
 
 #### Add Your Logo
