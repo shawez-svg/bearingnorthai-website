@@ -69,7 +69,7 @@ body {
 }
 
 .logo-img {
-    height: 45px;
+    height: 60px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -85,7 +85,7 @@ body {
 }
 
 .footer-logo {
-    height: 35px;
+    height: 50px;
     width: auto;
     object-fit: contain;
     display: inline-block;
