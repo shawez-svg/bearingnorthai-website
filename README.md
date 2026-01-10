@@ -148,7 +148,7 @@ Update in:
 1. Add logo file (e.g., `logo.png`) to website folder
 2. In each HTML file, replace:
    ```html
-   <i class="fas fa-compass"></i>
+<img src="https://drive.google.com/file/d/1f18K9BOrTJh2cBPSKoeEcna_9DogNTL4/view?usp=sharing" alt="BearingNorthAI" style="height: 40px;">
    BearingNorthAI
    ```
    With:
