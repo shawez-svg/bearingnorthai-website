@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
-      to: 'info@bearingnorthai.com',
+      to: 'contact@bearingnorthai.com',
       from: 'noreply@bearingnorthai.com',
       subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
       text: `

@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Form submission error:', error);
                 submitButton.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
                 submitButton.style.background = '#ef4444';
-                alert('Sorry, there was an error sending your message. Please try again or email us directly at info@bearingnorthai.com.');
+                alert('Sorry, there was an error sending your message. Please try again or email us directly at contact@bearingnorthai.com.');
             })
             .finally(() => {
                 // Reset button after 3 seconds
