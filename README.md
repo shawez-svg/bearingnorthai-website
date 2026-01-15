@@ -135,7 +135,7 @@ Form submissions appear in Vercel deployment logs:
 
 Current details:
 - **Phone**: +971 54 215 2357
-- **Email**: info@bearingnorthai.com
+- **Email**: contact@bearingnorthai.com
 - **Address**: Business Bay, Dubai, UAE
 
 Update in:
@@ -229,7 +229,7 @@ bearingnorthai-website/
 
 ## 📞 **Support**
 
-- **Email**: info@bearingnorthai.com
+- **Email**: contact@bearingnorthai.com
 - **Phone**: +971 54 215 2357
 - **Location**: Business Bay, Dubai, UAE
 
