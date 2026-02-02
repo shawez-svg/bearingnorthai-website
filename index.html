@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BearingNorthAI - AI Advisory & Implementation for UAE</title>
+    <title>BearingNorthAI - AI Products for UAE Businesses</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/shawez-svg/bearingnorthai-website/refs/heads/main/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/shawez-svg/bearingnorthai-website/refs/heads/main/favicon_io/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/shawez-svg/bearingnorthai-website/refs/heads/main/favicon_io/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 </head>
 <body>
     <!-- Navigation -->
@@ -16,33 +19,15 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="index.html" class="logo">
-                    <img src="https://raw.githubusercontent.com/shawez-svg/bearingnorthai-website/refs/heads/main/logo.png" alt="BearingNorthAI Logo" class="logo-img">
-                    
+                    <span class="logo-text">BearingNorth<span class="logo-accent">AI</span></span>
                 </a>
                 <div class="nav-menu" id="navMenu">
-                    <a href="index.html" class="nav-link active">
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    <a href="services.html" class="nav-link">
-                        <i class="fas fa-cogs"></i>
-                        <span>Services</span>
-                    </a>
-                    <a href="about.html" class="nav-link">
-                        <i class="fas fa-users"></i>
-                        <span>About</span>
-                    </a>
-                    <a href="case-studies.html" class="nav-link">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Case Studies</span>
-                    </a>
-                    <a href="contact.html" class="nav-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Contact</span>
-                    </a>
-                    <a href="#" class="btn-cta" id="bookConsultation">
-                        <i class="fas fa-calendar-check"></i>
-                        Book AI Consultation
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="ai-marketer.html" class="nav-link">AI Marketer</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#" class="btn-cta" id="earlyAccess">
+                        Get Early Access
                     </a>
                 </div>
                 <button class="hamburger" id="hamburger">
@@ -56,223 +41,180 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-grid"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Transform Your Business with AI Intelligence</h1>
-                <p class="hero-subtitle">Leading AI Advisory & Implementation Partner for UAE's Digital Future</p>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    AI-Powered Products for UAE SMBs
+                </div>
+                <h1 class="hero-title">
+                    AI Tools That <span class="gradient-text">Actually Work</span> for Your Business
+                </h1>
                 <p class="hero-description">
-                    BearingNorthAI empowers UAE enterprises to harness the transformative power of artificial intelligence.
-                    We align with UAE's Vision 2031 to position your organization at the forefront of the AI revolution.
+                    We build focused, powerful AI products for UAE businesses with 50-500 employees. 
+                    No fluff. No enterprise complexity. Just tools that solve real problems.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary" id="heroBookBtn">
-                        <i class="fas fa-calendar-check"></i>
-                        Book Free Consultation
-                    </a>
-                    <a href="services.html" class="btn-secondary">
+                    <a href="#products" class="btn-primary">
+                        <span>Explore Products</span>
                         <i class="fas fa-arrow-right"></i>
-                        Explore Services
+                    </a>
+                    <a href="#" class="btn-secondary" id="heroEarlyAccess">
+                        <span>Get Early Access</span>
                     </a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">AI Projects Delivered</div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Marketer</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Coming Soon</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Products</span>
+                <h2>AI Products Built for <span class="gradient-text">Real Results</span></h2>
+                <p>Each product is designed to solve one problem exceptionally well.</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- AI Marketer - Featured -->
+                <div class="product-card featured">
+                    <div class="product-status">
+                        <span class="status-badge live">Live Beta</span>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">30+</div>
-                        <div class="stat-label">UAE Clients</div>
+                    <div class="product-icon">
+                        <i class="fas fa-bullhorn"></i>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">85%</div>
-                        <div class="stat-label">ROI Average Increase</div>
+                    <h3>AI Marketer</h3>
+                    <p>Your AI marketing strategist. Have a 30-minute voice conversation about your brand, and get a complete marketing strategy tailored to your business.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Voice-based brand interview</li>
+                        <li><i class="fas fa-check"></i> Custom marketing strategy</li>
+                        <li><i class="fas fa-check"></i> Actionable recommendations</li>
+                    </ul>
+                    <div class="product-cta">
+                        <a href="ai-marketer.html" class="btn-product">
+                            Try AI Marketer
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Automation - Coming Soon -->
+                <div class="product-card">
+                    <div class="product-status">
+                        <span class="status-badge coming">Coming Soon</span>
+                    </div>
+                    <div class="product-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp AI</h3>
+                    <p>Intelligent WhatsApp automation for customer engagement. Automate responses, qualify leads, and never miss a conversation.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-clock"></i> 24/7 automated responses</li>
+                        <li><i class="fas fa-clock"></i> Lead qualification</li>
+                        <li><i class="fas fa-clock"></i> CRM integration</li>
+                    </ul>
+                    <div class="product-cta">
+                        <a href="#" class="btn-product-secondary" id="whatsappWaitlist">
+                            Join Waitlist
+                            <i class="fas fa-bell"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- More Products Coming -->
+                <div class="product-card placeholder">
+                    <div class="product-status">
+                        <span class="status-badge coming">In Development</span>
+                    </div>
+                    <div class="product-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <h3>More Coming</h3>
+                    <p>We're building a suite of AI products for UAE businesses. Each one focused, powerful, and designed to deliver ROI fast.</p>
+                    <div class="product-cta">
+                        <a href="#" class="btn-product-secondary" id="moreProductsWaitlist">
+                            Get Notified
+                            <i class="fas fa-bell"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section class="services-overview">
+    <!-- Target Audience Section -->
+    <section class="audience" id="about">
         <div class="container">
-            <div class="section-header">
-                <h2>Comprehensive AI Solutions for UAE Market</h2>
-                <p>End-to-end AI advisory and implementation services tailored for Middle East enterprises</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-lightbulb"></i>
+            <div class="audience-content">
+                <div class="audience-text">
+                    <span class="section-tag">Who We Build For</span>
+                    <h2>Built for UAE Businesses <span class="gradient-text">Like Yours</span></h2>
+                    <p>We focus exclusively on mid-market companies in the UAE. Not too small, not enterprise. Just right.</p>
+                    
+                    <div class="audience-specs">
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="spec-text">
+                                <h4>50-500 Employees</h4>
+                                <p>Big enough to need AI, small enough to move fast</p>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="spec-text">
+                                <h4>UAE Based</h4>
+                                <p>We understand local business, culture, and regulations</p>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="spec-text">
+                                <h4>Non-Tech Industries</h4>
+                                <p>Retail, hospitality, healthcare, manufacturing, services</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>AI Strategy & Advisory</h3>
-                    <p>Develop comprehensive AI roadmaps aligned with UAE's digital transformation initiatives and your business objectives.</p>
-                    <ul class="service-features">
-                        <li>AI Readiness Assessment</li>
-                        <li>Technology Stack Selection</li>
-                        <li>ROI Analysis & Business Cases</li>
-                    </ul>
-                    <a href="services.html#strategy" class="service-link">Learn More →</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
+                <div class="audience-visual">
+                    <div class="visual-card">
+                        <div class="visual-stat">
+                            <span class="stat-number">50-500</span>
+                            <span class="stat-label">Employee Sweet Spot</span>
+                        </div>
+                        <div class="visual-divider"></div>
+                        <div class="visual-industries">
+                            <span class="industry-tag">Retail</span>
+                            <span class="industry-tag">Healthcare</span>
+                            <span class="industry-tag">Hospitality</span>
+                            <span class="industry-tag">Manufacturing</span>
+                            <span class="industry-tag">Services</span>
+                            <span class="industry-tag">Trading</span>
+                        </div>
                     </div>
-                    <h3>AI Implementation</h3>
-                    <p>Build and deploy production-ready AI solutions including machine learning, NLP, and computer vision systems.</p>
-                    <ul class="service-features">
-                        <li>Custom AI Model Development</li>
-                        <li>Integration with Existing Systems</li>
-                        <li>Cloud & On-Premise Deployment</li>
-                    </ul>
-                    <a href="services.html#implementation" class="service-link">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Generative AI Solutions</h3>
-                    <p>Leverage cutting-edge LLMs and generative AI for chatbots, content generation, and intelligent automation.</p>
-                    <ul class="service-features">
-                        <li>Custom ChatGPT Solutions</li>
-                        <li>Document Intelligence</li>
-                        <li>Automated Content Generation</li>
-                    </ul>
-                    <a href="services.html#genai" class="service-link">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Data Engineering & Analytics</h3>
-                    <p>Build robust data infrastructure and analytics pipelines to fuel your AI initiatives.</p>
-                    <ul class="service-features">
-                        <li>Data Lake Architecture</li>
-                        <li>Predictive Analytics</li>
-                        <li>Real-time Data Processing</li>
-                    </ul>
-                    <a href="services.html#data" class="service-link">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>AI Governance & Compliance</h3>
-                    <p>Ensure ethical AI deployment with frameworks compliant with UAE regulations and international standards.</p>
-                    <ul class="service-features">
-                        <li>AI Ethics Framework</li>
-                        <li>Regulatory Compliance</li>
-                        <li>Risk Management</li>
-                    </ul>
-                    <a href="services.html#governance" class="service-link">Learn More →</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>AI Training & Enablement</h3>
-                    <p>Upskill your teams with hands-on AI training programs designed for UAE professionals.</p>
-                    <ul class="service-features">
-                        <li>Executive AI Workshops</li>
-                        <li>Technical Team Training</li>
-                        <li>Change Management Support</li>
-                    </ul>
-                    <a href="services.html#training" class="service-link">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries We Serve -->
-    <section class="industries">
-        <div class="container">
-            <div class="section-header">
-                <h2>Industries We Transform</h2>
-                <p>Specialized AI solutions for UAE's key economic sectors</p>
-            </div>
-            <div class="industries-grid">
-                <div class="industry-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Banking & Finance</h3>
-                    <p>Fraud detection, risk assessment, and intelligent customer service</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>Healthcare</h3>
-                    <p>Diagnostic AI, patient monitoring, and operational optimization</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>Retail & E-commerce</h3>
-                    <p>Personalization engines, demand forecasting, and inventory optimization</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-plane"></i>
-                    <h3>Travel & Hospitality</h3>
-                    <p>Smart recommendations, dynamic pricing, and guest experience AI</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-industry"></i>
-                    <h3>Manufacturing</h3>
-                    <p>Predictive maintenance, quality control, and supply chain optimization</p>
-                </div>
-                <div class="industry-card">
-                    <i class="fas fa-landmark"></i>
-                    <h3>Government</h3>
-                    <p>Smart city solutions, citizen services, and operational efficiency</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Leading UAE Organizations Choose BearingNorthAI</h2>
-                <p>Your trusted partner in AI transformation</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>UAE Market Expertise</h3>
-                    <p>Deep understanding of UAE's regulatory landscape, business culture, and Vision 2031 AI strategy. We navigate local compliance requirements seamlessly.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3>Proven Track Record</h3>
-                    <p>Successfully delivered 50+ AI projects across Dubai, Abu Dhabi, and the wider Emirates with measurable business impact and ROI.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>End-to-End Delivery</h3>
-                    <p>From strategy to deployment, we handle every aspect of your AI journey with dedicated teams and proven methodologies.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Global + Local Approach</h3>
-                    <p>Leverage international best practices while addressing unique Middle Eastern business requirements and cultural considerations.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Strategic Partnerships</h3>
-                    <p>Certified partners with Microsoft Azure, AWS, and Google Cloud, ensuring access to cutting-edge AI technologies and support.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Ongoing Support</h3>
-                    <p>24/7 technical support and continuous optimization to ensure your AI systems deliver sustained value and performance.</p>
                 </div>
             </div>
         </div>
@@ -282,13 +224,12 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Transform Your Business with AI?</h2>
-                <p>Join leading UAE organizations leveraging AI for competitive advantage. Book a free consultation with our AI experts today.</p>
-                <a href="#" class="btn-primary-large" id="ctaBookBtn">
-                    <i class="fas fa-calendar-check"></i>
-                    Schedule Free AI Consultation
+                <h2>Ready to Try AI That <span class="gradient-text">Actually Works</span>?</h2>
+                <p>Get early access to our products and be the first to know when we launch new tools.</p>
+                <a href="#" class="btn-primary-large" id="ctaEarlyAccess">
+                    <span>Get Early Access</span>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
-                <p class="cta-note">30-minute consultation • No commitment required • UAE-focused insights</p>
             </div>
         </div>
     </section>
@@ -296,56 +237,56 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>
-                        <img src="https://raw.githubusercontent.com/shawez-svg/bearingnorthai-website/refs/heads/main/logo.png" alt="BearingNorthAI Logo" class="footer-logo">
-                    </h3>
-                    <p>Leading AI advisory and implementation partner empowering UAE businesses to achieve transformational growth through artificial intelligence.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">BearingNorth<span class="logo-accent">AI</span></span>
+                    <p>AI products for UAE businesses. Simple. Focused. Effective.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <ul>
+                            <li><a href="ai-marketer.html">AI Marketer</a></li>
+                            <li><a href="#">WhatsApp AI (Soon)</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="services.html#strategy">AI Strategy</a></li>
-                        <li><a href="services.html#implementation">AI Implementation</a></li>
-                        <li><a href="services.html#genai">Generative AI</a></li>
-                        <li><a href="services.html#data">Data Engineering</a></li>
-                        <li><a href="services.html#governance">AI Governance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
-                        <li><i class="fas fa-phone"></i> +971 54 215 2357</li>
-                        <li><i class="fas fa-envelope"></i> contact@bearingnorthai.com</li>
-                    </ul>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 BearingNorthAI. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
+                <p>&copy; 2026 BearingNorthAI. Built in UAE 🇦🇪</p>
             </div>
         </div>
     </footer>
+
+    <!-- Early Access Modal -->
+    <div class="modal" id="earlyAccessModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h3>Get Early Access</h3>
+            <p>Be the first to try our AI products. Enter your email and we'll keep you updated.</p>
+            <form class="early-access-form" id="earlyAccessForm">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit" class="btn-primary">
+                    <span>Join Waitlist</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
