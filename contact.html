@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Get in Touch | BearingNorthAI</title>
+    <meta name="description" content="Get in touch with BearingNorthAI. Questions about our AI products? Want to discuss your business needs? We're here to help.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <style>
+        .contact-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content {
+            padding: 60px 0 100px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .contact-info {
+            position: sticky;
+            top: 120px;
+        }
+        
+        .contact-info h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .contact-method:hover {
+            border-color: var(--border-glow);
+            transform: translateX(4px);
+        }
+        
+        .contact-method-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-subtle);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-method-icon i {
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+        }
+        
+        .contact-method-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        
+        .contact-method-info p {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .contact-method-info a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-method-info a:hover {
+            color: var(--neon-cyan);
+        }
+        
+        .contact-form-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .contact-form-wrapper h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bg-primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            display: block;
+        }
+        
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            display: block;
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-info {
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-wrapper {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">BearingNorth<span class="logo-accent">AI</span></span>
+                </a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#products" class="nav-link">Products</a>
+                    <a href="ai-marketer.html" class="nav-link">AI Marketer</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                    <a href="ai-marketer.html" class="btn-cta">
+                        Try AI Marketer
+                    </a>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="hero-glow"></div>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <h1>Let's <span class="gradient-text">Talk</span></h1>
+            <p>Questions about our products? Want to discuss your business needs? We're here to help.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>We typically respond within 24 hours. For urgent inquiries, reach out via WhatsApp.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-method-info">
+                                <h4>Email</h4>
+                                <p><a href="mailto:hello@bearingnorthai.com">hello@bearingnorthai.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-method-info">
+                                <h4>WhatsApp</h4>
+                                <p><a href="https://wa.me/971XXXXXXXXX" target="_blank">+971 XX XXX XXXX</a></p>
+                                <!-- TODO: Update with your WhatsApp number -->
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-method-info">
+                                <h4>Location</h4>
+                                <p>Dubai, UAE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3>Send us a message</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">What are you interested in? *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select an option</option>
+                                <option value="ai-marketer">AI Marketer</option>
+                                <option value="whatsapp-ai">WhatsApp AI (Waitlist)</option>
+                                <option value="custom">Custom AI Solution</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">BearingNorth<span class="logo-accent">AI</span></span>
+                    <p>AI products for UAE businesses. Simple. Focused. Effective.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <ul>
+                            <li><a href="ai-marketer.html">AI Marketer</a></li>
+                            <li><a href="#">WhatsApp AI (Soon)</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="index.html#about">About</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BearingNorthAI. Built in UAE 🇦🇪</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const formMessage = document.getElementById('formMessage');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'none';
+            
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                interest: document.getElementById('interest').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                // TODO: Replace with your actual API endpoint
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = '✓ Message sent! We\'ll get back to you within 24 hours.';
+                    this.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '✗ Something went wrong. Please try emailing us directly at hello@bearingnorthai.com';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+    </script>
+</body>
+</html>

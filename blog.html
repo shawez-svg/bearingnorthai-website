@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - AI Insights for UAE Businesses | BearingNorthAI</title>
+    <meta name="description" content="Practical AI insights, strategies, and trends for UAE mid-market businesses. Learn how to leverage AI for real business results.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <style>
+        /* Blog Styles */
+        .blog-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .blog-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+            padding: 60px 0;
+        }
+        
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-glow);
+            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.1);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--neon-cyan);
+        }
+        
+        .blog-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .blog-card h3 a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .blog-card h3 a:hover {
+            color: var(--neon-cyan);
+        }
+        
+        .blog-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .blog-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .read-more {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s;
+        }
+        
+        .read-more:hover {
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">BearingNorth<span class="logo-accent">AI</span></span>
+                </a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#products" class="nav-link">Products</a>
+                    <a href="ai-marketer.html" class="nav-link">AI Marketer</a>
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="#" class="btn-cta" id="earlyAccess">
+                        Get Early Access
+                    </a>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="hero-glow"></div>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <h1>AI Insights for <span class="gradient-text">UAE Businesses</span></h1>
+            <p>Practical strategies, case studies, and trends to help you leverage AI effectively.</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Feb 3, 2026</span>
+                            <span><i class="fas fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3><a href="blog/why-ai-marketing-works-uae.html">Why AI Marketing Actually Works for UAE SMBs</a></h3>
+                        <p class="blog-excerpt">
+                            Most AI tools are built for tech companies or large enterprises. Here's why mid-market UAE businesses need a different approach — and how AI can actually deliver ROI without the complexity.
+                        </p>
+                        <div>
+                            <span class="blog-tag">AI Strategy</span>
+                            <span class="blog-tag">UAE Business</span>
+                        </div>
+                        <a href="blog/why-ai-marketing-works-uae.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Feb 2, 2026</span>
+                            <span><i class="fas fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h3><a href="blog/whatsapp-automation-uae.html">WhatsApp Automation: The Untapped Opportunity for UAE Retailers</a></h3>
+                        <p class="blog-excerpt">
+                            WhatsApp is how UAE customers communicate. Yet most businesses still reply manually. Here's how intelligent automation can transform customer engagement without losing the personal touch.
+                        </p>
+                        <div>
+                            <span class="blog-tag">WhatsApp</span>
+                            <span class="blog-tag">Automation</span>
+                        </div>
+                        <a href="blog/whatsapp-automation-uae.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 30, 2026</span>
+                            <span><i class="fas fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3><a href="blog/50-to-500-employees-ai-sweet-spot.html">The 50-500 Employee Sweet Spot: Why This Is AI's Biggest Opportunity</a></h3>
+                        <p class="blog-excerpt">
+                            Too big for manual processes, too small for enterprise tools. Mid-market companies are perfectly positioned to benefit from AI — if they choose the right tools.
+                        </p>
+                        <div>
+                            <span class="blog-tag">SMB</span>
+                            <span class="blog-tag">Growth</span>
+                        </div>
+                        <a href="blog/50-to-500-employees-ai-sweet-spot.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 28, 2026</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h3><a href="blog/voice-ai-future-marketing.html">Voice AI: The Future of Marketing Strategy (And Why You Should Care)</a></h3>
+                        <p class="blog-excerpt">
+                            Typing is slow. Forms are boring. Voice is natural. We built AI Marketer around voice conversations because that's how humans actually think and communicate.
+                        </p>
+                        <div>
+                            <span class="blog-tag">Voice AI</span>
+                            <span class="blog-tag">Product</span>
+                        </div>
+                        <a href="blog/voice-ai-future-marketing.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 25, 2026</span>
+                            <span><i class="fas fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3><a href="blog/non-tech-companies-ai-advantage.html">Why Non-Tech Companies Have an AI Advantage (Yes, Really)</a></h3>
+                        <p class="blog-excerpt">
+                            Retail, healthcare, hospitality — these industries are ripe for AI transformation precisely because they haven't been over-engineered. Here's why that's your competitive edge.
+                        </p>
+                        <div>
+                            <span class="blog-tag">Industry Trends</span>
+                            <span class="blog-tag">Strategy</span>
+                        </div>
+                        <a href="blog/non-tech-companies-ai-advantage.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 22, 2026</span>
+                            <span><i class="fas fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h3><a href="blog/micro-saas-approach.html">The Micro SaaS Approach: Why We Build Small, Focused AI Tools</a></h3>
+                        <p class="blog-excerpt">
+                            One problem, solved exceptionally well. That's our philosophy. Why we're building a portfolio of micro SaaS products instead of one massive platform.
+                        </p>
+                        <div>
+                            <span class="blog-tag">Product Philosophy</span>
+                            <span class="blog-tag">SaaS</span>
+                        </div>
+                        <a href="blog/micro-saas-approach.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Try AI That <span class="gradient-text">Actually Works</span>?</h2>
+                <p>Get early access to our products and be the first to know when we launch new tools.</p>
+                <a href="#" class="btn-primary-large" id="ctaEarlyAccess">
+                    <span>Get Early Access</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">BearingNorth<span class="logo-accent">AI</span></span>
+                    <p>AI products for UAE businesses. Simple. Focused. Effective.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <ul>
+                            <li><a href="ai-marketer.html">AI Marketer</a></li>
+                            <li><a href="#">WhatsApp AI (Soon)</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="index.html#about">About</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BearingNorthAI. Built in UAE 🇦🇪</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Early Access Modal -->
+    <div class="modal" id="earlyAccessModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h3>Get Early Access</h3>
+            <p>Be the first to try our AI products. Enter your email and we'll keep you updated.</p>
+            <form class="early-access-form" id="earlyAccessForm">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit" class="btn-primary">
+                    <span>Join Waitlist</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

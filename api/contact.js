@@ -1,7 +1,21 @@
 // Vercel Serverless Function to handle contact form submissions
-// This file will automatically be deployed as an API endpoint at /api/contact
+// Uses Resend for email notifications
 
 export default async function handler(req, res) {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -11,7 +25,7 @@ export default async function handler(req, res) {
     const formData = req.body;
 
     // Validate required fields
-    const requiredFields = ['firstName', 'lastName', 'email', 'company', 'industry', 'interest', 'message'];
+    const requiredFields = ['firstName', 'lastName', 'email', 'company', 'interest', 'message'];
     const missingFields = requiredFields.filter(field => !formData[field]);
 
     if (missingFields.length > 0) {
@@ -27,115 +41,97 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid email address' });
     }
 
-    // Here you can implement different storage options:
+    // Send email via Resend
+    if (process.env.RESEND_API_KEY) {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`
+        },
+        body: JSON.stringify({
+          from: 'BearingNorthAI Contact <noreply@bearingnorthai.com>',
+          to: [process.env.CONTACT_EMAIL || 'hello@bearingnorthai.com'],
+          reply_to: formData.email,
+          subject: `New Contact: ${formData.firstName} ${formData.lastName} - ${formData.interest}`,
+          html: `
+            <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #0a0a0f; border-bottom: 3px solid #00d4ff; padding-bottom: 12px;">
+                🔔 New Contact Form Submission
+              </h2>
+              
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #6b7280; width: 120px;">Name:</td>
+                    <td style="padding: 8px 0; color: #0a0a0f;">${formData.firstName} ${formData.lastName}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #6b7280;">Email:</td>
+                    <td style="padding: 8px 0;"><a href="mailto:${formData.email}" style="color: #00d4ff;">${formData.email}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #6b7280;">Phone:</td>
+                    <td style="padding: 8px 0; color: #0a0a0f;">${formData.phone || 'Not provided'}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #6b7280;">Company:</td>
+                    <td style="padding: 8px 0; color: #0a0a0f;">${formData.company}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 8px 0; font-weight: 600; color: #6b7280;">Interest:</td>
+                    <td style="padding: 8px 0; color: #0a0a0f;"><strong>${formData.interest}</strong></td>
+                  </tr>
+                </table>
+              </div>
+              
+              <div style="margin: 20px 0;">
+                <h3 style="color: #0a0a0f; margin-bottom: 12px;">Message:</h3>
+                <div style="background: #ffffff; padding: 16px; border-left: 4px solid #00d4ff; border-radius: 4px;">
+                  <p style="color: #374151; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formData.message}</p>
+                </div>
+              </div>
+              
+              <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af;">
+                Submitted: ${new Date().toLocaleString('en-AE', { timeZone: 'Asia/Dubai' })} (UAE Time)
+              </div>
+            </div>
+          `
+        })
+      });
 
-    // OPTION 1: Send email via SendGrid
-    // Uncomment and configure if you want to use SendGrid
-    /*
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-    const msg = {
-      to: 'contact@bearingnorthai.com',
-      from: 'noreply@bearingnorthai.com',
-      subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
-      text: `
-        Name: ${formData.firstName} ${formData.lastName}
-        Email: ${formData.email}
-        Phone: ${formData.phone || 'Not provided'}
-        Company: ${formData.company}
-        Industry: ${formData.industry}
-        Interest: ${formData.interest}
-        Message: ${formData.message}
-        Newsletter: ${formData.newsletter ? 'Yes' : 'No'}
-      `,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${formData.firstName} ${formData.lastName}</p>
-        <p><strong>Email:</strong> ${formData.email}</p>
-        <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
-        <p><strong>Company:</strong> ${formData.company}</p>
-        <p><strong>Industry:</strong> ${formData.industry}</p>
-        <p><strong>Interest:</strong> ${formData.interest}</p>
-        <p><strong>Message:</strong> ${formData.message}</p>
-        <p><strong>Newsletter:</strong> ${formData.newsletter ? 'Yes' : 'No'}</p>
-      `,
-    };
-
-    await sgMail.send(msg);
-    */
-
-    // OPTION 2: Save to Google Sheets
-    // Uncomment and configure if you want to use Google Sheets
-    /*
-    const { GoogleSpreadsheet } = require('google-spreadsheet');
-    const { JWT } = require('google-auth-library');
-
-    const serviceAccountAuth = new JWT({
-      email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    });
-
-    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
-    await doc.loadInfo();
-    const sheet = doc.sheetsByIndex[0];
-
-    await sheet.addRow({
-      Timestamp: new Date().toISOString(),
-      'First Name': formData.firstName,
-      'Last Name': formData.lastName,
-      Email: formData.email,
-      Phone: formData.phone || '',
-      Company: formData.company,
-      Industry: formData.industry,
-      Interest: formData.interest,
-      Message: formData.message,
-      Newsletter: formData.newsletter ? 'Yes' : 'No'
-    });
-    */
-
-    // OPTION 3: Save to Airtable
-    // Uncomment and configure if you want to use Airtable
-    /*
-    const Airtable = require('airtable');
-    const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE_ID);
-
-    await base('Contacts').create([
-      {
-        fields: {
-          'First Name': formData.firstName,
-          'Last Name': formData.lastName,
-          'Email': formData.email,
-          'Phone': formData.phone || '',
-          'Company': formData.company,
-          'Industry': formData.industry,
-          'Interest': formData.interest,
-          'Message': formData.message,
-          'Newsletter': formData.newsletter ? 'Yes' : 'No',
-          'Submitted At': new Date().toISOString()
-        }
+      if (!response.ok) {
+        const error = await response.text();
+        console.error('Resend API error:', error);
+        throw new Error('Failed to send email');
       }
-    ]);
-    */
 
-    // OPTION 4: Log to Vercel (for testing - data will be in deployment logs)
-    console.log('Contact Form Submission:', {
-      timestamp: new Date().toISOString(),
-      ...formData
-    });
+      console.log('Email sent successfully via Resend');
+    } else {
+      // Fallback: Just log if no Resend API key configured
+      console.log('📧 Contact Form Submission (No Resend API Key):', {
+        timestamp: new Date().toISOString(),
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        interest: formData.interest,
+        message: formData.message
+      });
+      console.warn('⚠️  Set RESEND_API_KEY environment variable to send emails');
+    }
 
     // Return success response
     return res.status(200).json({
       success: true,
-      message: 'Form submitted successfully'
+      message: 'Thank you! We\'ll get back to you within 24 hours.'
     });
 
   } catch (error) {
     console.error('Error processing form:', error);
     return res.status(500).json({
-      error: 'Internal server error',
-      message: error.message
+      error: 'Failed to submit form',
+      message: 'Please try again or email us directly at hello@bearingnorthai.com'
     });
   }
 }
