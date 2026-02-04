@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Tracker | Rudra & Himanshu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .column {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+        }
+
+        .column-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .column-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .todo .column-icon { background: #fef3c7; }
+        .doing .column-icon { background: #dbeafe; }
+        .done .column-icon { background: #d1fae5; }
+
+        .column h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .count {
+            margin-left: auto;
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .task-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .task-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #d1d5db;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .task-title {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .board {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Project Tracker</h1>
+            <p>Rudra & Himanshu — BearingNorthAI & TekSalah AI</p>
+        </header>
+
+        <div class="board">
+            <!-- TO DO Column -->
+            <div class="column todo">
+                <div class="column-header">
+                    <div class="column-icon">📋</div>
+                    <h2>To Do</h2>
+                    <span class="count" id="todo-count">0</span>
+                </div>
+                <div id="todo-list">
+                    <div class="task-card">
+                        <span class="project-tag">Website</span>
+                        <div class="task-title">Deploy ai-marketer-v2 product page</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">AI Marketer</span>
+                        <div class="task-title">Clarify target market: solo vs 50-500 employees</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">LinkedIn Brand</span>
+                        <div class="task-title">Audit Himanshu's LinkedIn profile</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">LinkedIn Brand</span>
+                        <div class="task-title">Content strategy workshop (5 questions)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">OpenClaw Config</span>
+                        <div class="task-title">Add model fallbacks: Mistral + Claude Sonnet 4.5</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Assets</span>
+                        <div class="task-title">Set up Deepgram STT (Speech-to-Text)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DOING Column -->
+            <div class="column doing">
+                <div class="column-header">
+                    <div class="column-icon">⚡</div>
+                    <h2>Doing</h2>
+                    <span class="count" id="doing-count">0</span>
+                </div>
+                <div id="doing-list">
+                    <div class="task-card">
+                        <span class="project-tag">Project Tracker</span>
+                        <div class="task-title">Build and deploy this project management tool</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">LinkedIn Brand</span>
+                        <div class="task-title">Create content calendar for Month 1 (12-15 posts)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">LinkedIn Brand</span>
+                        <div class="task-title">Analyze competitor & inspiration profiles</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DONE Column -->
+            <div class="column done">
+                <div class="column-header">
+                    <div class="column-icon">✅</div>
+                    <h2>Done</h2>
+                    <span class="count" id="done-count">0</span>
+                </div>
+                <div id="done-list">
+                    <div class="task-card">
+                        <span class="project-tag">Setup</span>
+                        <div class="task-title">Capturing Himanshu's full background (USER.md)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Setup</span>
+                        <div class="task-title">Documented BearingNorthAI strategy (USER.md)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Setup</span>
+                        <div class="task-title">Created memory directory and daily logs</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Assets</span>
+                        <div class="task-title">Verified GitHub repo access and Vercel deployment</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Assets</span>
+                        <div class="task-title">Setup Deepgram TTS (Read Aloud service)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Assets</span>
+                        <div class="task-title">Selected default voice: Asteria</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Assets</span>
+                        <div class="task-title">Setup SuperMemory API key</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">Assets</span>
+                        <div class="task-title">Setup OpenAI API key (GPT-4, embeddings)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">ClawHub Skills</span>
+                        <div class="task-title">Installed LinkedIn, Cold Email, Typefully</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">ClawHub Skills</span>
+                        <div class="task-title">Installed Memory suite (5 skills)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">OpenClaw Config</span>
+                        <div class="task-title">Changed heartbeat from 30min to 1 hour</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">OpenClaw Config</span>
+                        <div class="task-title">Added model fallbacks to TODO list (Mistral, Claude)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="last-updated">
+            Last updated: February 4, 2026 at 14:00 UTC
+        </div>
+    </div>
+
+    <script>
+        // Update counts
+        function updateCounts() {
+            document.getElementById('todo-count').textContent = document.querySelectorAll('#todo-list .task-card').length;
+            document.getElementById('doing-count').textContent = document.querySelectorAll('#doing-list .task-card').length;
+            document.getElementById('done-count').textContent = document.querySelectorAll('#done-list .task-card').length;
+        }
+
+        // Initialize counts on load
+        updateCounts();
+    </script>
+</body>
+</html>
