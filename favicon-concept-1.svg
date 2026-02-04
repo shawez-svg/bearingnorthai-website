@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Concept 1: Compass Needle with AI Circuit -->
+  <defs>
+    <linearGradient id="compassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#compassGrad)"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="white" stroke-width="8"/>
+  
+  <!-- Cardinal Points (N, E, S, W marks) -->
+  <text x="256" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="48">N</text>
+  
+  <!-- Compass Needle Pointing North -->
+  <polygon points="256,120 226,280 256,260 286,280" fill="white"/>
+  <polygon points="256,392 226,232 256,252 286,232" fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Center Circle -->
+  <circle cx="256" cy="256" r="24" fill="white"/>
+  <circle cx="256" cy="256" r="16" fill="url(#compassGrad)"/>
+  
+  <!-- AI Circuit Dots -->
+  <circle cx="140" cy="256" r="8" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="372" cy="256" r="8" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="256" cy="140" r="8" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="256" cy="372" r="8" fill="rgba(255,255,255,0.6)"/>
+  
+  <!-- Circuit Lines -->
+  <line x1="148" y1="256" x2="232" y2="256" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
+  <line x1="280" y1="256" x2="364" y2="256" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
+  <line x1="256" y1="148" x2="256" y2="232" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
+  <line x1="256" y1="280" x2="256" y2="364" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
+</svg>

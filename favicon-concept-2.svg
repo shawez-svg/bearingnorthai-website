@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Concept 2: Stylized B+N Monogram with Star -->
+  <defs>
+    <linearGradient id="bnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="50%" style="stop-color:#764ba2"/>
+      <stop offset="100%" style="stop-color:#f093fb"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="128" fill="url(#bnGrad)"/>
+  
+  <!-- Stylized B that doubles as N -->
+  <path d="M 140 120 
+           L 140 392 
+           L 180 392 
+           L 180 280 
+           L 280 392 
+           L 332 392 
+           L 220 268 
+           Q 280 260 280 196 
+           Q 280 120 200 120 
+           Z" 
+        fill="white" filter="url(#glow)"/>
+  
+  <!-- B/N Crossbar -->
+  <rect x="180" y="236" width="80" height="40" fill="url(#bnGrad)"/>
+  
+  <!-- North Star Above -->
+  <polygon points="256,60 266,90 296,90 272,110 282,140 256,120 230,140 240,110 216,90 246,90" fill="white" filter="url(#glow)"/>
+  
+  <!-- AI Node Points -->
+  <circle cx="120" cy="256" r="12" fill="rgba(255,255,255,0.8)"/>
+  <circle cx="392" cy="256" r="12" fill="rgba(255,255,255,0.8)"/>
+  <circle cx="256" cy="440" r="12" fill="rgba(255,255,255,0.8)"/>
+  
+  <!-- Connection Lines -->
+  <line x1="132" y1="256" x2="140" y2="256" stroke="rgba(255,255,255,0.5)" stroke-width="4"/>
+  <line x1="332" y1="256" x2="380" y2="256" stroke="rgba(255,255,255,0.5)" stroke-width="4"/>
+</svg>
