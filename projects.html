@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -45,8 +45,8 @@
 
         .board {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .column {
@@ -76,6 +76,7 @@
             font-size: 1.2rem;
         }
 
+        .ideas .column-icon { background: #fce7f3; }
         .todo .column-icon { background: #fef3c7; }
         .doing .column-icon { background: #dbeafe; }
         .done .column-icon { background: #d1fae5; }
@@ -110,6 +111,33 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border-color: #d1d5db;
+        }
+
+        /* Status Tags */
+        .status-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .status-evaluating {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-building {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-killed {
+            background: #fee2e2;
+            color: #991b1b;
         }
 
         .project-tag {
@@ -154,17 +182,64 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎯 Project Tracker</h1>
-            <p>Rudra & Himanshu</p>
+            <h1>🚀 Project Tracker</h1>
+            <p>Rudra & Himanshu — BearingNorthAI & TekSalah AI</p>
         </header>
 
         <div class="board">
+            <!-- IDEAS Column -->
+            <div class="column ideas">
+                <div class="column-header">
+                    <div class="column-icon">💡</div>
+                    <h2>Ideas</h2>
+                    <span class="count" id="ideas-count">9</span>
+                </div>
+                <div id="ideas-list">
+                    <div class="task-card">
+                        <span class="status-tag status-evaluating">Evaluating</span>
+                        <div class="task-title">AI-Native Recruitment Agency</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-evaluating">Evaluating</span>
+                        <div class="task-title">AI-Powered Lead Generation Agency</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-evaluating">Evaluating</span>
+                        <div class="task-title">AI Content/Marketing Agency</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-killed">Killed</span>
+                        <div class="task-title">Lemlist API Integration</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-killed">Killed</span>
+                        <div class="task-title">WhatsApp Automation Product</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-building">Building</span>
+                        <div class="task-title">LinkedIn Personal Brand Engine</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-building">Building</span>
+                        <div class="task-title">AI Marketer Product</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-evaluating">Evaluating</span>
+                        <div class="task-title">Gmail/Workspace Integration</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="status-tag status-evaluating">Evaluating</span>
+                        <div class="task-title">Task-Based Model Routing</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- TO DO Column -->
             <div class="column todo">
                 <div class="column-header">
                     <div class="column-icon">📋</div>
                     <h2>To Do</h2>
-                    <span class="count" id="todo-count">0</span>
+                    <span class="count" id="todo-count">6</span>
                 </div>
                 <div id="todo-list">
                     <div class="task-card">
@@ -177,19 +252,19 @@
                     </div>
                     <div class="task-card">
                         <span class="project-tag">LinkedIn Brand</span>
-                        <div class="task-title">Audit Himanshu's LinkedIn profile</div>
+                        <div class="task-title">LinkedIn profile audit</div>
                     </div>
                     <div class="task-card">
                         <span class="project-tag">LinkedIn Brand</span>
-                        <div class="task-title">Content strategy workshop (5 questions)</div>
+                        <div class="task-title">Content strategy workshop</div>
                     </div>
                     <div class="task-card">
                         <span class="project-tag">OpenClaw Config</span>
-                        <div class="task-title">Add model fallbacks: Mistral + Claude Sonnet 4.5</div>
+                        <div class="task-title">Add model fallbacks (Mistral, Claude)</div>
                     </div>
                     <div class="task-card">
                         <span class="project-tag">Assets</span>
-                        <div class="task-title">Set up Deepgram STT (Speech-to-Text)</div>
+                        <div class="task-title">Set up Deepgram STT for voice notes</div>
                     </div>
                 </div>
             </div>
@@ -199,7 +274,7 @@
                 <div class="column-header">
                     <div class="column-icon">⚡</div>
                     <h2>Doing</h2>
-                    <span class="count" id="doing-count">0</span>
+                    <span class="count" id="doing-count">2</span>
                 </div>
                 <div id="doing-list">
                     <div class="task-card">
@@ -218,7 +293,7 @@
                 <div class="column-header">
                     <div class="column-icon">✅</div>
                     <h2>Done</h2>
-                    <span class="count" id="done-count">0</span>
+                    <span class="count" id="done-count">17</span>
                 </div>
                 <div id="done-list">
                     <div class="task-card">
@@ -254,6 +329,10 @@
                         <div class="task-title">Setup OpenAI API key (GPT-4, embeddings)</div>
                     </div>
                     <div class="task-card">
+                        <span class="project-tag">Assets</span>
+                        <div class="task-title">Design and deploy BearingNorthAI favicon</div>
+                    </div>
+                    <div class="task-card">
                         <span class="project-tag">ClawHub Skills</span>
                         <div class="task-title">Installed LinkedIn, Cold Email, Typefully</div>
                     </div>
@@ -262,12 +341,20 @@
                         <div class="task-title">Installed Memory suite (5 skills)</div>
                     </div>
                     <div class="task-card">
+                        <span class="project-tag">ClawHub Skills</span>
+                        <div class="task-title">Installed last30days research skill</div>
+                    </div>
+                    <div class="task-card">
                         <span class="project-tag">OpenClaw Config</span>
                         <div class="task-title">Changed heartbeat from 30min to 1 hour</div>
                     </div>
                     <div class="task-card">
                         <span class="project-tag">OpenClaw Config</span>
                         <div class="task-title">Added model fallbacks to TODO list (Mistral, Claude)</div>
+                    </div>
+                    <div class="task-card">
+                        <span class="project-tag">OpenClaw Config</span>
+                        <div class="task-title">Enabled session memory search + memory flush</div>
                     </div>
                     <div class="task-card">
                         <span class="project-tag">Project Tracker</span>
@@ -281,21 +368,7 @@
             </div>
         </div>
 
-        <div class="last-updated">
-            Last updated: February 4, 2026 at 14:00 UTC
-        </div>
+        <p class="last-updated">Last updated: 2026-02-04 17:10 UTC</p>
     </div>
-
-    <script>
-        // Update counts
-        function updateCounts() {
-            document.getElementById('todo-count').textContent = document.querySelectorAll('#todo-list .task-card').length;
-            document.getElementById('doing-count').textContent = document.querySelectorAll('#doing-list .task-card').length;
-            document.getElementById('done-count').textContent = document.querySelectorAll('#done-list .task-card').length;
-        }
-
-        // Initialize counts on load
-        updateCounts();
-    </script>
 </body>
 </html>
